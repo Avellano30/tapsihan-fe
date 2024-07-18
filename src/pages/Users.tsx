@@ -58,8 +58,9 @@ export default function Users() {
         spacing={{ base: "xs", sm: "xs" }}
         verticalSpacing={{ base: "xs", sm: "xs" }}
         mb={"md"}
+        style={{ maxWidth: '850px', margin: '0 auto' }}
       >
-        <div className="flex justify-between items-center bg-[#940e0e1a] text-[#940e0e] font-bold rounded-md p-2">
+        <div style= {{width:"850px"}}className="flex justify-between items-center bg-[#DEE2E6] text-[black] font-bold rounded-md p-2">
           Users
           <Select
             variant="filled"
@@ -79,10 +80,10 @@ export default function Users() {
         </div>
       </SimpleGrid>
 
-      <div className="border-2 rounded-md border-[#940e0e]">
+      <div className="border-2 rounded-md border-[#868E96]" style={{ maxWidth: '850px', margin: '0 auto', width:"850px" }} >
         <Table highlightOnHover striped>
           <Table.Thead>
-            <Table.Tr bg={"#940e0e1a"}>
+            <Table.Tr bg={"#DEE2E6"}>
               <Table.Th ta={"center"}>Username</Table.Th>
               <Table.Th ta={"center"}>Email</Table.Th>
               <Table.Th ta={"center"}>Address</Table.Th>

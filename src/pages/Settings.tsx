@@ -15,7 +15,7 @@ export default function Settings() {
       </Box>
 
       <Box className="flex justify-center">
-        <Button color="#940e0e"
+        <Button color="black"
           onClick={() => {
             localStorage.removeItem("session"),
               localStorage.removeItem("index"),

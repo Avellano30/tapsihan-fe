@@ -243,7 +243,7 @@ export default function Products() {
       <Table.Td ta={"center"}>₱{product.price.toLocaleString()}</Table.Td>
       <Table.Td ta={"center"}>
         <Button
-          w={"100%"} color="#495057"
+          w={"100%"} color="black"
           leftSection={<IconPencil />}
           onClick={() => {
             setSelectedProduct(product);
@@ -253,7 +253,7 @@ export default function Products() {
           Edit
         </Button>
         <Button
-          mt={5} w={"100%"} color="#f03e3e"
+          mt={5} w={"100%"} color="#C92A2A"
           leftSection={<IconTrashX />}
           onClick={() => {
             setProductToDelete(product);
@@ -268,46 +268,47 @@ export default function Products() {
 
   return (
     <>
-      <SimpleGrid
-        cols={{ base: 1, sm: 1 }}
-        spacing={{ base: "xs", sm: "xs" }}
-        verticalSpacing={{ base: "xs", sm: "xs" }}
-        mb={"md"}
-      >
-        <div className="flex justify-between items-center bg-[#940e0e1a] text-[#940e0e] font-bold rounded-md p-2">
-          Products
-          <Select
-            variant="filled"
-            checkIconPosition="right"
-            w={{ base: "100%", sm: "250px" }}
-            radius={"md"}
-            data={products.map((product) => ({ value: product.productName, label: product.productName }))}
-            rightSection={searchValue ? "" : <IconSearch size={15} />}
-            placeholder="Search"
-            clearable
-            searchable
-            searchValue={searchValue}
-            onSearchChange={setSearchValue}
-            nothingFoundMessage="Nothing found..."
-            comboboxProps={{ transitionProps: { transition: "pop", duration: 200 }, shadow: "md" }}
-          />
-        </div>
-      </SimpleGrid>
+       <SimpleGrid
+            cols={1}
+            spacing="xs"
+            verticalSpacing="xs"
+            mb="md"
+            style={{ maxWidth: '850px', margin: '0 auto' }}
+        >
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width:"850px" , background: '#DEE2E6', color: 'black', fontWeight: 'bold', padding: '0.9rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', marginLeft:"10px" }}>
+                    Menu List
+                    <Select
+                        variant="filled"
+                        checkIconPosition="right"
+                        width="250px"
+                        radius="md"
+                        data={products.map((product) => ({ value: product.productName, label: product.productName }))}
+                        rightSection={searchValue ? "" : <IconSearch size={15} />}
+                        placeholder="Search"
+                        clearable
+                        searchable
+                        searchValue={searchValue}
+                        onSearchChange={setSearchValue}
+                        nothingFoundMessage="Nothing found..."
+                        comboboxProps={{ transitionProps: { transition: 'pop', duration: 200 }, shadow: 'md' }}
+                        style={{ marginLeft: '1rem' }}
+                    />
+                </div>
+                <Button  color="black" radius="md" mr={10} onClick={openAddModal}>
+                    Add Menu <IconPlus size={15} stroke={3} className="ml-2"  />
+                </Button>
+            </div>
+        </SimpleGrid>
 
-      <div className="mb-4">
-        <Button color="#940e0e" radius="md" onClick={openAddModal} w={{ base: "100%", md: "140px" }}>
-          New Product <IconPlus size={15} stroke={3} className="ml-2" />
-        </Button>
-      </div>
-
-      <div className="border-2 rounded-md border-[#940e0e]">
+      <div className="border-2  border-[#868E96]"  style={{ maxWidth: '850px', margin: '0 auto', width:"850px" }}>
         <Table highlightOnHover withColumnBorders>
           <Table.Thead>
-            <Table.Tr bg={"#940e0e1a"}>
+            <Table.Tr bg={"#DEE2E6"} c="black">
               <Table.Th w={80} ta={"center"}>Stocks</Table.Th>
               <Table.Th w={200}>Product Image</Table.Th>
               <Table.Th>Product Name</Table.Th>
-              <Table.Th>Description</Table.Th>
+              <Table.Th> Description</Table.Th>
               <Table.Th w={150} ta={"center"}>Price</Table.Th>
               <Table.Th w={80} ta={"center"}>Action</Table.Th>
             </Table.Tr>
