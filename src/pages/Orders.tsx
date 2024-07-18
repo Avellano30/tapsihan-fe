@@ -184,7 +184,7 @@ const Orders: React.FC = () => {
   return (
     <>
       <SimpleGrid cols={1} spacing="xs" verticalSpacing="xs" mb="md" style={{ maxWidth: '850px', margin: '0 auto' }}>
-        <div style= {{width:"850px"}} className="flex justify-between items-center bg-[#DEE2E6] text-[black] font-bold rounded-md p-2">
+        <div style= {{width:"850px"}} className="flex justify-between items-center bg-[#DEE2E6] text-[black] font-bold p-2">
           Orders
           <Select
             variant="filled"

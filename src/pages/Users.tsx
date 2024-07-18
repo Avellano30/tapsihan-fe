@@ -60,7 +60,7 @@ export default function Users() {
         mb={"md"}
         style={{ maxWidth: '850px', margin: '0 auto' }}
       >
-        <div style= {{width:"850px"}}className="flex justify-between items-center bg-[#DEE2E6] text-[black] font-bold rounded-md p-2">
+        <div style= {{width:"850px"}}className="flex justify-between items-center bg-[#DEE2E6] text-[black] font-bold p-2">
           Users
           <Select
             variant="filled"
@@ -80,7 +80,7 @@ export default function Users() {
         </div>
       </SimpleGrid>
 
-      <div className="border-2 rounded-md border-[#868E96]" style={{ maxWidth: '850px', margin: '0 auto', width:"850px" }} >
+      <div className="border-2 border-[#868E96]" style={{ maxWidth: '850px', margin: '0 auto', width:"850px" }} >
         <Table highlightOnHover striped>
           <Table.Thead>
             <Table.Tr bg={"#DEE2E6"}>
