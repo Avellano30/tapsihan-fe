@@ -1,5 +1,4 @@
 import { Box, Button, Text } from "@mantine/core";
-import { IconPower } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Settings() {
@@ -9,7 +8,7 @@ export default function Settings() {
     <>
       <Box className="mt-1 mb-5 justify-center flex">
         <Text fw={"bold"} fz={25}>
-          Settings
+          Thank you for visiting Gabbi's Tapsihan!
 
         </Text>
       </Box>
@@ -21,9 +20,8 @@ export default function Settings() {
               localStorage.removeItem("index"),
               navigate("/")
           }}
-          leftSection={<IconPower />}
         >
-          Logout
+          Sign out
         </Button>
       </Box>
 

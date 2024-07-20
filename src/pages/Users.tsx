@@ -60,9 +60,10 @@ export default function Users() {
         mb={"md"}
         style={{ maxWidth: '850px', margin: '0 auto' }}
       >
-        <div style= {{width:"850px"}}className="flex justify-between items-center bg-[#DEE2E6] text-[black] font-bold p-2">
+        <div style= {{width:"850px", padding:"0.9rem"}}className="flex items-center bg-[#DEE2E6] text-[black] font-bold p-2">
           Users
           <Select
+            ml={20}
             variant="filled"
             checkIconPosition="right"
             w={{ base: "100%", sm: "250px" }}

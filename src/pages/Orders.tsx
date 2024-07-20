@@ -72,38 +72,38 @@ const Orders: React.FC = () => {
     return (
       <div>
         {ordersByStatus.length === 0 ? (
-          <p>No orders found.</p>
+          <p></p>
         ) : (
           ordersByStatus.map((order, index) => (
-            <div key={index} className="rounded-md border-[#940e0e] border-2 mb-4" >
+            <div key={index} className="border-[#868E96] border-2 mb-4" >
               <div className="gap-4">
                 {order.user && (
                   <div className="">
                     <Table highlightOnHover withColumnBorders>
                       <Table.Tbody>
                         <Table.Tr>
-                          <Table.Th ta={"center"} w={150} bg={'#940e0e1a'}>Username</Table.Th>
+                          <Table.Th ta={"center"} w={150} bg={'#DEE2E6'}>Username</Table.Th>
                           <Table.Td>{order.user.username}</Table.Td>
                         </Table.Tr>
                         <Table.Tr>
-                          <Table.Th ta={"center"} w={150} bg={'#940e0e1a'}>Address</Table.Th>
+                          <Table.Th ta={"center"} w={150} bg={'#DEE2E6'}>Address</Table.Th>
                           <Table.Td>{order.user.address}</Table.Td>
                         </Table.Tr>
                         <Table.Tr>
-                          <Table.Th ta={"center"} w={150} bg={'#940e0e1a'}>Contact #</Table.Th>
+                          <Table.Th ta={"center"} w={150} bg={'#DEE2E6'}>Contact #</Table.Th>
                           <Table.Td>{order.user.contact}</Table.Td>
                         </Table.Tr>
                       </Table.Tbody>
                     </Table>
                   </div>
                 )}
-                <div className="border-y border-[#940e0e]">
+                <div className="border-y border-[#868E96]">
                   <Table highlightOnHover withColumnBorders>
                     <Table.Thead>
                       <Table.Tr>
-                        <Table.Th style={{ textAlign: "center" }} bg={'#940e0e1a'}>Product</Table.Th>
-                        <Table.Th style={{ textAlign: "center" }} bg={'#940e0e1a'}>Quantity</Table.Th>
-                        <Table.Th style={{ textAlign: "center" }} bg={'#940e0e1a'}>Payment Method</Table.Th>
+                        <Table.Th style={{ textAlign: "center" }} bg={'#DEE2E6'}>Product</Table.Th>
+                        <Table.Th style={{ textAlign: "center" }} bg={'#DEE2E6'}>Quantity</Table.Th>
+                        <Table.Th style={{ textAlign: "center" }} bg={'#DEE2E6'}>Payment Method</Table.Th>
                       </Table.Tr>
                     </Table.Thead>
                     <Table.Tbody>
@@ -127,11 +127,10 @@ const Orders: React.FC = () => {
                   </Table>
                 </div>
               </div>
-              <div className="flex justify-center bg-[#940e0e] rounded-b-sm">
+              <div className="flex justify-center bg-[#DEE2E6] rounded-b-sm">
                 {status === "toship" && (
                   <Button
-                    color="#940e0e"
-                    radius="lg"
+                    color="black"
                     w={'100%'}
                     onClick={() =>
                       updateOrderStatus(order.user?._id, order.items, "delivery")
@@ -142,8 +141,7 @@ const Orders: React.FC = () => {
                 )}
                 {status === "delivery" && (
                   <Button
-                    color="#940e0e"
-                    radius="lg"
+                    color="black"
                     w={'100%'}
                     onClick={() =>
                       updateOrderStatus(order.user?._id, order.items, "completed")
@@ -184,9 +182,10 @@ const Orders: React.FC = () => {
   return (
     <>
       <SimpleGrid cols={1} spacing="xs" verticalSpacing="xs" mb="md" style={{ maxWidth: '850px', margin: '0 auto' }}>
-        <div style= {{width:"850px"}} className="flex justify-between items-center bg-[#DEE2E6] text-[black] font-bold p-2">
-          Orders
+        <div style= {{width:"850px",padding: '0.9rem'}} className="flex items-center bg-[#DEE2E6] text-[black] font-bold p-2 ">
+          Deliveries
           <Select
+            ml={20}
             variant="filled"
             checkIconPosition="right"
             w={{ base: "100%", sm: "250px" }}
@@ -211,20 +210,27 @@ const Orders: React.FC = () => {
           />
         </div>
       </SimpleGrid>
-      <Box className="flex" style={{ display: "flex", justifyContent: "space-between", maxWidth: '850px', width:'850px', margin: '0 auto'}}>
-        <Flex direction={"column"} style={{ width: "30%" }}>
-          <Divider my="xs" label={<Text fw={"bold"} c={"black"}>TO SHIP</Text>} labelPosition="left" color="black" />
-          {renderOrdersByStatus("toship")}
-        </Flex>
-        <Flex direction={"column"} style={{ width: "30%" }}>
-          <Divider my="xs" label={<Text fw={"bold"} c={"black"}>IN TRANSIT</Text>} labelPosition="left" color="black" />
-          {renderOrdersByStatus("delivery")}
-        </Flex>
-        <Flex direction={"column"} style={{ width: "30%" }}>
-          <Divider my="xs" label={<Text fw={"bold"} c={"black"}>COMPLETED</Text>} labelPosition="left" color="black" />
-          {renderOrdersByStatus("completed")}
-        </Flex>
-      </Box>
+      <Box className="flex" style={{ display: "flex", flexDirection: "column", maxWidth: '850px', width: '850px', margin: '0 auto' }}>
+  <Flex direction={"column"} style={{ width: "100%", marginBottom: '16px' }}>
+    <Divider my="xs" label={<Text fw={"bold"} c={"black"}>TO SHIP</Text>} labelPosition="left" color="black" />
+    <Flex direction={"row"} style={{ flexWrap: "wrap", marginTop: '8px' }}>
+      {renderOrdersByStatus("toship")}
+    </Flex>
+  </Flex>
+  <Flex direction={"column"} style={{ width: "100%", marginBottom: '16px' }}>
+    <Divider my="xs" label={<Text fw={"bold"} c={"black"}>IN TRANSIT</Text>} labelPosition="left" color="black" />
+    <Flex direction={"row"} style={{ flexWrap: "wrap", marginTop: '8px' }}>
+      {renderOrdersByStatus("delivery")}
+    </Flex>
+  </Flex>
+  <Flex direction={"column"} style={{ width: "100%" }}>
+    <Divider my="xs" label={<Text fw={"bold"} c={"black"}>COMPLETED</Text>} labelPosition="left" color="black" />
+    <Flex direction={"row"} style={{ flexWrap: "wrap", marginTop: '8px'}}>
+      {renderOrdersByStatus("completed")}
+    </Flex>
+  </Flex>
+</Box>
+
 
     </>
   );

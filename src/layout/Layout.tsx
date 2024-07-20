@@ -1,14 +1,14 @@
 import { AppShell, Burger, Group, Image, Text, UnstyledButton } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Logo from '/bw_tapsihan.png';
-import { IconSettings, IconListDetails, IconFriends, IconPackage } from '@tabler/icons-react';
+import { IconLogout, IconTruckDelivery, IconUsers, IconToolsKitchen2 } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 
 const navData = [
-    { icon: IconPackage, label: "Products", href: "/products" },
-    { icon: IconListDetails, label: "Orders", href: "/orders" },
-    { icon: IconFriends, label: "Users", href: "/users" },
-    { icon: IconSettings, label: "Settings", href: "/settings" },
+    { icon: IconToolsKitchen2, label: "Menu", href: "/products" },
+    { icon: IconTruckDelivery, label: "Deliveries", href: "/orders" },
+    { icon: IconUsers, label: "Users", href: "/users" },
+    { icon: IconLogout, label: "Sign out", href: "/settings" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -26,7 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             }}
             style={{ display: 'flex', alignItems: 'center', padding:"8px", background: index === currentIndex ? '#DEE2E6' : 'inherit', fontWeight: 500, borderRadius: 10, marginBottom: 5 }}
         >
-            <item.icon size="1.5rem" stroke={1.5} style={{ marginRight: 10 }} />
+            <item.icon size="1.5rem" stroke={1.5} style={{ marginRight: 5 }} />
             {item.label}
         </UnstyledButton>
     ));

@@ -12,7 +12,7 @@ import {
   FileInput,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconPencil, IconPlus, IconSearch, IconTrashX } from "@tabler/icons-react";
+import { IconSearch} from "@tabler/icons-react";
 import { notifications } from "@mantine/notifications";
 import { endpoint } from "../main";
 
@@ -244,7 +244,6 @@ export default function Products() {
       <Table.Td ta={"center"}>
         <Button
           w={"100%"} color="black"
-          leftSection={<IconPencil />}
           onClick={() => {
             setSelectedProduct(product);
             openEditModal();
@@ -254,7 +253,6 @@ export default function Products() {
         </Button>
         <Button
           mt={5} w={"100%"} color="#C92A2A"
-          leftSection={<IconTrashX />}
           onClick={() => {
             setProductToDelete(product);
             openDeleteModal();
@@ -277,7 +275,7 @@ export default function Products() {
         >
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width:"850px" , background: '#DEE2E6', color: 'black', fontWeight: 'bold', padding: '0.9rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', marginLeft:"10px" }}>
-                    Menu List
+                    Menu
                     <Select
                         variant="filled"
                         checkIconPosition="right"
@@ -296,7 +294,7 @@ export default function Products() {
                     />
                 </div>
                 <Button  color="black" radius="md" mr={10} onClick={openAddModal}>
-                    Add Menu <IconPlus size={15} stroke={3} className="ml-2"  />
+                    Add Menu 
                 </Button>
             </div>
         </SimpleGrid>
@@ -305,9 +303,9 @@ export default function Products() {
         <Table highlightOnHover withColumnBorders>
           <Table.Thead>
             <Table.Tr bg={"#DEE2E6"} c="black">
-              <Table.Th w={80} ta={"center"}>Stocks</Table.Th>
-              <Table.Th w={200}>Product Image</Table.Th>
-              <Table.Th>Product Name</Table.Th>
+              <Table.Th w={80} ta={"center"}>Quantity</Table.Th>
+              <Table.Th w={200}>Menu Image</Table.Th>
+              <Table.Th>Name</Table.Th>
               <Table.Th> Description</Table.Th>
               <Table.Th w={150} ta={"center"}>Price</Table.Th>
               <Table.Th w={80} ta={"center"}>Action</Table.Th>
@@ -321,16 +319,16 @@ export default function Products() {
       <Modal.Root opened={addModalOpened} onClose={closeAddModal} centered>
         <Modal.Overlay />
         <Modal.Content>
-          <Modal.Header bg={"#940e0e"} >
-            <Modal.Title c={"white"} fw={"bold"}>Create New Product</Modal.Title>
-            <Modal.CloseButton c={"white"} bg={"transparent"} />
+          <Modal.Header bg={"#DEE2E6"} >
+            <Modal.Title c={"black"} fw={"bold"}>Create New Menu</Modal.Title>
+            <Modal.CloseButton c={"black"} bg={"transparent"} />
           </Modal.Header>
           <Modal.Body>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: 15 }}>
               <TextInput
                 radius="md"
-                label="Product Name"
-                placeholder="Enter Product Name"
+                label="Menu Name"
+                placeholder="Enter Menu Name"
                 value={newProduct.productName}
                 onChange={(e) => handleInputChange("productName", e.currentTarget.value)}
                 withAsterisk
@@ -339,17 +337,17 @@ export default function Products() {
 
               <Textarea
                 radius="md"
-                label="Product Description"
+                label="Menu Description"
                 withAsterisk
-                placeholder="Write a brief description of the product"
+                placeholder="Enter Menu Description"
                 value={newProduct.description}
                 onChange={(e) => handleInputChange("description", e.currentTarget.value)}
                 required
               />
 
               <NumberInput
-                label="Product Price"
-                placeholder="Enter Product Price"
+                label="Price"
+                placeholder="Enter Menu Price"
                 allowNegative={false}
                 value={newProduct.price}
                 onChange={(value) => handleInputChange("price", value ?? 0)}
@@ -360,8 +358,8 @@ export default function Products() {
               />
 
               <NumberInput
-                label="Product Stocks"
-                placeholder="Enter Product Stocks"
+                label="Quantity"
+                placeholder="Enter Menu Quantity"
                 allowNegative={false}
                 value={newProduct.stocks}
                 onChange={(value) => handleInputChange("stocks", value ?? 0)}
@@ -373,8 +371,8 @@ export default function Products() {
 
               <FileInput
                 variant="filled"
-                label="Product Image"
-                placeholder="Upload Product Image"
+                label="Image"
+                placeholder="Upload Image"
                 accept="image/*"
                 withAsterisk
                 required
@@ -382,8 +380,8 @@ export default function Products() {
               />
 
               <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-                <Button onClick={handleFormSubmit} variant="outline" color="#940e0e" bg={"#940e0e1a"}>
-                  Create Product
+                <Button onClick={handleFormSubmit} variant="outline" color="white" bg={"black"}>
+                  Create Menu
                 </Button>
               </div>
             </div>
@@ -396,16 +394,16 @@ export default function Products() {
         <Modal.Root opened={editModalOpened} onClose={() => { setSelectedProduct(null); closeEditModal(); }} centered>
           <Modal.Overlay />
           <Modal.Content>
-            <Modal.Header bg={"#940e0e"} >
-              <Modal.Title c={"white"} fw={"bold"}>Edit Product</Modal.Title>
-              <Modal.CloseButton c={"white"} bg={"transparent"} />
+            <Modal.Header bg={"#DEE2E6"} >
+              <Modal.Title c={"black"} fw={"bold"}>Edit Menu</Modal.Title>
+              <Modal.CloseButton c={"black"} bg={"transparent"} />
             </Modal.Header>
             <Modal.Body>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: 15 }}>
                 <TextInput
                   radius="md"
-                  label="Product Name"
-                  placeholder="Enter Product Name"
+                  label="Menu Name"
+                  placeholder="Enter Menu Name"
                   value={selectedProduct.productName}
                   onChange={(e) => handleInputChange("productName", e.currentTarget.value)}
                   withAsterisk
@@ -414,17 +412,17 @@ export default function Products() {
 
                 <Textarea
                   radius="md"
-                  label="Product Description"
+                  label="Menu Description"
                   withAsterisk
-                  placeholder="Write a brief description of the product"
+                  placeholder="Enter Menu Description"
                   value={selectedProduct.description}
                   onChange={(e) => handleInputChange("description", e.currentTarget.value)}
                   required
                 />
 
                 <NumberInput
-                  label="Product Price"
-                  placeholder="Enter Product Price"
+                  label="Price"
+                  placeholder="Enter Menu Price"
                   allowNegative={false}
                   value={selectedProduct.price}
                   onChange={(value) => handleInputChange("price", value ?? 0)}
@@ -435,8 +433,8 @@ export default function Products() {
                 />
 
                 <NumberInput
-                  label="Product Stocks"
-                  placeholder="Enter Product Stocks"
+                  label="Quantity"
+                  placeholder="Enter Menu Quantity"
                   allowNegative={false}
                   value={selectedProduct.stocks}
                   onChange={(value) => handleInputChange("stocks", value ?? 0)}
@@ -448,15 +446,15 @@ export default function Products() {
 
                 <FileInput
                   variant="filled"
-                  label="Product Image"
-                  placeholder="Upload Product Image"
+                  label="Image"
+                  placeholder="Upload Image"
                   accept="image/*"
                   onChange={(value) => handleInputChange("image", value as File)}
                 />
 
                 <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-                  <Button onClick={handleEditFormSubmit} variant="outline" color="#940e0e" bg={"#940e0e1a"}>
-                    Update Product
+                  <Button onClick={handleEditFormSubmit} variant="outline" color="white" bg={"black"}>
+                    Update Menu
                   </Button>
                 </div>
               </div>
@@ -470,21 +468,21 @@ export default function Products() {
         <Modal.Root opened={deleteModalOpened} onClose={() => { setProductToDelete(null); closeDeleteModal(); }} centered>
           <Modal.Overlay />
           <Modal.Content>
-            <Modal.Header bg={"#940e0e"} >
-              <Modal.Title c={"white"} fw={"bold"}>Delete Product</Modal.Title>
-              <Modal.CloseButton c={"white"} bg={"transparent"} />
+            <Modal.Header bg={"#DEE2E6"} >
+              <Modal.Title c={"black"} fw={"bold"}>Delete Menu</Modal.Title>
+              <Modal.CloseButton c={"black"} bg={"transparent"} />
             </Modal.Header>
             <Modal.Body>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: 15 }}>
-                <p>Are you sure you want to delete this product?</p>
+                <p>Are you sure you want to delete this menu? </p>
                 <h1>
                   <strong>{productToDelete.productName}</strong>
                 </h1>
                 <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-                  <Button onClick={handleDelete} variant="outline" color="#ff0000" bg={"#ff00001a"}>
+                  <Button onClick={handleDelete} color="white" bg={"#C92A2A"}>
                     Delete
                   </Button>
-                  <Button onClick={closeDeleteModal} variant="outline" color="#000000" bg={"#0000001a"} ml="md">
+                  <Button onClick={closeDeleteModal} color="white" bg={"black"} ml="md">
                     Cancel
                   </Button>
                 </div>
