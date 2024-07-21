@@ -118,7 +118,7 @@ const Orders: React.FC = () => {
                               {item.quantity}
                             </Table.Td>
                             <Table.Td style={{ textAlign: "center" }}>
-                              {item.mop} <br/>
+                              {item.mop} <br />
                               {item.mop !== "Cash on Delivery" && item.paymentRef}
                             </Table.Td>
                           </Table.Tr>
@@ -182,7 +182,7 @@ const Orders: React.FC = () => {
   return (
     <>
       <SimpleGrid cols={1} spacing="xs" verticalSpacing="xs" mb="md" style={{ maxWidth: '850px', margin: '0 auto' }}>
-        <div style= {{width:"850px",padding: '0.9rem'}} className="flex items-center bg-[#DEE2E6] text-[black] font-bold p-2 ">
+        <div style={{ width: "850px", padding: '0.9rem' }} className="flex items-center bg-[#DEE2E6] text-[black] font-bold p-2 ">
           Deliveries
           <Select
             ml={20}
@@ -211,27 +211,19 @@ const Orders: React.FC = () => {
         </div>
       </SimpleGrid>
       <Box className="flex" style={{ display: "flex", flexDirection: "column", maxWidth: '850px', width: '850px', margin: '0 auto' }}>
-  <Flex direction={"column"} style={{ width: "100%", marginBottom: '16px' }}>
-    <Divider my="xs" label={<Text fw={"bold"} c={"black"}>TO SHIP</Text>} labelPosition="left" color="black" />
-    <Flex direction={"row"} style={{ flexWrap: "wrap", marginTop: '8px' }}>
-      {renderOrdersByStatus("toship")}
-    </Flex>
-  </Flex>
-  <Flex direction={"column"} style={{ width: "100%", marginBottom: '16px' }}>
-    <Divider my="xs" label={<Text fw={"bold"} c={"black"}>IN TRANSIT</Text>} labelPosition="left" color="black" />
-    <Flex direction={"row"} style={{ flexWrap: "wrap", marginTop: '8px' }}>
-      {renderOrdersByStatus("delivery")}
-    </Flex>
-  </Flex>
-  <Flex direction={"column"} style={{ width: "100%" }}>
-    <Divider my="xs" label={<Text fw={"bold"} c={"black"}>COMPLETED</Text>} labelPosition="left" color="black" />
-    <Flex direction={"row"} style={{ flexWrap: "wrap", marginTop: '8px'}}>
-      {renderOrdersByStatus("completed")}
-    </Flex>
-  </Flex>
-</Box>
-
-
+        <Flex direction={"column"} style={{ width: "100%", marginBottom: '16px' }}>
+          <Divider my="xs" label={<Text fw={"bold"} c={"black"}>TO SHIP</Text>} labelPosition="left" color="black" />
+            {renderOrdersByStatus("toship")}
+        </Flex>
+        <Flex direction={"column"} style={{ width: "100%", marginBottom: '16px' }}>
+          <Divider my="xs" label={<Text fw={"bold"} c={"black"}>IN TRANSIT</Text>} labelPosition="left" color="black" />
+            {renderOrdersByStatus("delivery")}
+        </Flex>
+        <Flex direction={"column"} style={{ width: "100%" }}>
+          <Divider my="xs" label={<Text fw={"bold"} c={"black"}>COMPLETED</Text>} labelPosition="left" color="black" />
+            {renderOrdersByStatus("completed")}
+        </Flex>
+      </Box>
     </>
   );
 };
